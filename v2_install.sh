@@ -1,5 +1,10 @@
 #!/bin/bash
 
+if [ $# == 0 ] ; then
+   echo "please input params, hk(香港)，jp(日本)，ag(美国)，am（澳门）"
+   exit 0
+fi
+
 sudo rm -rf /docker/v2ray
 
 sudo mkdir -p /docker/v2ray
@@ -42,7 +47,9 @@ case "$1" in
 esac
 
 if [ ! -d "/docker/v2ray/config.json" ];then
-   sudo chmod -R 776 /docker/v2ray/config.json
+   	sudo chmod -R 776 /docker/v2ray/config.json
+   else
+	exit 0
 fi
 
 echo "---start run docker----"
